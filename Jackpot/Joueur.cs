@@ -12,6 +12,7 @@ namespace Jackpot
         private string nom;
         private int solde;
         #endregion
+
         #region const
         public Joueur(string nom, int solde = 100)
         {
@@ -19,10 +20,12 @@ namespace Jackpot
             this.solde = solde;
         }
         #endregion
+
         #region SG
         public string GetNom() { return nom; }
         public int GetSolde() {  return solde; }
         #endregion
+
         #region Meth
         public void Miser(int mise)
         {
