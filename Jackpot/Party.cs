@@ -20,20 +20,32 @@ namespace Jackpot
         #region ctor
         public Party()
         {
-            Console.Write("Entrez le nombre de joueurs :");
-            int nj = Convert.ToInt32(Console.ReadLine());
+            int nj;
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Entrez le nombre de joueurs :");
+                    nj = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch 
+                {
+                    Console.WriteLine("Vous devez entre un nombre entier > 0.");
+                }
+            }
             for (int i = 0; i < nj; i++)
             {
                 while (true)
                 {
-                    try
+                    Console.Write($"Entrez le nom du joueur{i + 1} : ");
+                    string nameJ = Console.ReadLine();
+                    if(nameJ != ""  && !JoueurExist(nameJ))
                     {
-                        Console.Write($"Entrez le nom du joueur{i + 1} : ");
-                        string nameJ = Console.ReadLine();
                         joueurs.Add(new Joueur(nameJ));
                         break;
                     }
-                    catch
+                    else
                     {
                         Console.WriteLine("Vous devez au moins un caractère");
                     }
@@ -145,6 +157,23 @@ namespace Jackpot
                     "Il est donc éliminer.");
                 joueurs.Remove(j);
             }
+        }
+        /// <summary>
+        ///     Vérifi si un nom de joueur est déjà utiliser dans un joueurs de la list joueurs 
+        /// </summary>
+        /// <param name="nom">Nom a donné aux joueur</param>
+        /// <returns>
+        ///     True : nom déja utiliser
+        ///     False : nom non utiliser
+        /// </returns>
+        private bool JoueurExist(string nom)
+        {
+            foreach (Joueur j in joueurs)
+            {
+                if (j.GetNom() == nom)
+                    return true;
+            }
+            return false;
         }
         #endregion
 
