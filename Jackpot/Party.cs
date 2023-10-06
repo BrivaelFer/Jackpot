@@ -24,7 +24,9 @@ namespace Jackpot
                 Console.Write($"Entrez le nom du joueur{i + 1} : ");
                 string nameJ = Console.ReadLine();
                 joueurs.Add(new Joueur(nameJ));
+                
             }
+            Play();
         }
         #endregion
 
@@ -37,11 +39,12 @@ namespace Jackpot
             while(continueGame)
             {
                 tourn++;
-                Console.WriteLine($"Début tour {tourn} :");
+                
                 if(joueurs.Count == 0)
                     continueGame = false;
                 else
                 {
+                    Console.WriteLine($"Début tour {tourn} :");
                     foreach (Joueur joueur in joueurs)
                     {
                         Console.WriteLine($"\rTour {joueur.GetNom()}");
@@ -50,7 +53,9 @@ namespace Jackpot
                             $"\n\r\rentrez votre mise : ");
                         string m = Console.ReadLine();
                         this.PlayerUserMachin(joueur, Convert.ToInt32(m));
+                        
                     }
+                    RemoveJoueur();
                 }
             }
         }
@@ -74,6 +79,22 @@ namespace Jackpot
             else 
             { 
                 Console.WriteLine($"{joueur.GetNom} à predu !"); 
+            }
+        }
+
+        private void RemoveJoueur()
+        {
+            List<Joueur> rm = new List<Joueur>();
+            foreach (var j in joueurs)
+            {
+                if (j.GetSolde() == 0)
+                {
+                    rm.Add(j);
+                }
+            }
+            foreach (var j in rm)
+            {
+                joueurs.Remove(j);
             }
         }
         #endregion

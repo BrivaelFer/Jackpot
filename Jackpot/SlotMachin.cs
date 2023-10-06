@@ -9,7 +9,7 @@ namespace Jackpot
     internal class SlotMachin
     {
         #region att
-        private Rouleau[] rouleaus = new Rouleau[2];
+        private Rouleau[] rouleaus = new Rouleau[3];
         #endregion
 
         #region ctor
