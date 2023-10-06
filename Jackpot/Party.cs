@@ -24,9 +24,20 @@ namespace Jackpot
             int nj = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < nj; i++)
             {
-                Console.Write($"Entrez le nom du joueur{i + 1} : ");
-                string nameJ = Console.ReadLine();
-                joueurs.Add(new Joueur(nameJ));
+                while (true)
+                {
+                    try
+                    {
+                        Console.Write($"Entrez le nom du joueur{i + 1} : ");
+                        string nameJ = Console.ReadLine();
+                        joueurs.Add(new Joueur(nameJ));
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Vous devez au moins un caractère");
+                    }
+                }
                 
             }
             Play();
@@ -62,13 +73,26 @@ namespace Jackpot
                     foreach (Joueur joueur in joueurs)
                     {
                         Console.WriteLine($"\tTour {joueur.GetNom()}");
-                        Console.Write($"\t\t{joueur.GetNom()}" +
-                            $"\n\t\tSolde : {joueur.GetSolde()} " +
-                            $"\n\t\tentrez votre mise : ");
-                        //demande une mise au joueur
-                        string m = Console.ReadLine();
-                        //Utilise la machine
-                        this.PlayerUserMachin(joueur, Convert.ToInt32(m));
+                        Console.WriteLine($"\t\t{joueur.GetNom()}" +
+                            $"\n\t\tSolde : {joueur.GetSolde()}");
+
+                        while(true)
+                        {
+                            try
+                            {
+                                Console.Write($"\t\tentrez votre mise : ");
+                                //Demande une mise au joueur
+                                string m = Console.ReadLine();
+                                //Utilise la machine
+                                this.PlayerUserMachin(joueur, Convert.ToInt32(m));
+                                break;
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Vous devez entrer un nombre entrier.");
+                            }
+                        }
+                       
                         
                     }
                 }
