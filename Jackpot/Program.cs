@@ -6,6 +6,7 @@ namespace Jackpot
         public static void Main(string[] args)
         {
             Party party = new Party();
+            Console.ReadLine();
         }
     }
 

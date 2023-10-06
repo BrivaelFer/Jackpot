@@ -49,10 +49,10 @@ namespace Jackpot
                     Console.WriteLine($"Début tour {tourn} :");
                     foreach (Joueur joueur in joueurs)
                     {
-                        Console.WriteLine($"\rTour {joueur.GetNom()}");
-                        Console.Write($"\r\r{joueur.GetNom()}" +
-                            $"\n\r\rSolde : {joueur.GetSolde()} " +
-                            $"\n\r\rentrez votre mise : ");
+                        Console.WriteLine($"\tTour {joueur.GetNom()}");
+                        Console.Write($"\t\t{joueur.GetNom()}" +
+                            $"\n\t\tSolde : {joueur.GetSolde()} " +
+                            $"\n\t\tentrez votre mise : ");
                         string m = Console.ReadLine();
                         this.PlayerUserMachin(joueur, Convert.ToInt32(m));
                         
@@ -63,7 +63,7 @@ namespace Jackpot
         private void PlayerUserMachin(Joueur joueur, int mise)
         {
             int rm = machin.Jouer();
-            joueur.Miser(mise);
+            mise = joueur.Miser(mise);
             if(rm == 1)
             {
                 int g = Convert.ToInt32(mise * 1.5);
@@ -95,6 +95,8 @@ namespace Jackpot
             }
             foreach (var j in rm)
             {
+                Console.WriteLine($"Le joueur {j.GetNom()} est perdu tout solde.\n" +
+                    "Il est donc éliminer.");
                 joueurs.Remove(j);
             }
         }

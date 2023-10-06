@@ -27,9 +27,15 @@ namespace Jackpot
         #endregion
 
         #region Meth
-        public void Miser(int mise)
+        public int Miser(int mise)
         {
+            if(solde - mise < 0)
+            {
+                mise = solde;
+                Console.WriteLine($"Solde insufisante.\n La mise est niveau de la solde({solde})");
+            }
             solde -= mise;
+            return mise;
         }
         public void AddGain(int gain)
         {
