@@ -11,7 +11,7 @@ namespace Jackpot
         #region att
         private int numSymboles;
         private Random rnd = new Random();
-        private List<string> symboles = new List<string> { "🍎", "🍒", "🍇", "🍋", "🍉", "🔔", "⭐", "7️⃣" };
+        private List<string> symboles = new List<string> { "P", "C", "R", "F", "M", "C", "*", "7" };
         #endregion
         #region constr
         public Rouleau()

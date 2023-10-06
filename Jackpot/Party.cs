@@ -39,8 +39,10 @@ namespace Jackpot
             while(continueGame)
             {
                 tourn++;
-                
-                if(joueurs.Count == 0)
+
+                RemoveJoueur();
+
+                if (joueurs.Count == 0)
                     continueGame = false;
                 else
                 {
@@ -55,7 +57,6 @@ namespace Jackpot
                         this.PlayerUserMachin(joueur, Convert.ToInt32(m));
                         
                     }
-                    RemoveJoueur();
                 }
             }
         }
@@ -67,18 +68,18 @@ namespace Jackpot
             {
                 int g = Convert.ToInt32(mise * 1.5);
                 joueur.AddGain(g);
-                Console.WriteLine($"{joueur.GetNom} gagne {g}");
+                Console.WriteLine($"{joueur.GetNom()} gagne {g}");
                 
             }
             else if(rm == 2)
             {
                 int g = Convert.ToInt32(mise * 2);
                 joueur.AddGain(g);
-                Console.WriteLine($"{joueur.GetNom} gagne {g}");
+                Console.WriteLine($"{joueur.GetNom()} gagne {g}");
             }
             else 
             { 
-                Console.WriteLine($"{joueur.GetNom} à predu !"); 
+                Console.WriteLine($"{joueur.GetNom()} à predu !"); 
             }
         }
 
@@ -87,7 +88,7 @@ namespace Jackpot
             List<Joueur> rm = new List<Joueur>();
             foreach (var j in joueurs)
             {
-                if (j.GetSolde() == 0)
+                if (j.GetSolde() <= 0)
                 {
                     rm.Add(j);
                 }

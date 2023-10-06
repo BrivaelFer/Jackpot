@@ -41,16 +41,10 @@ namespace Jackpot
             };
             Console.WriteLine($"|{res[0]}|{res[1]}|{res[2]}|");
 
-            if (res[0] == res[1])
+            if (res[0] == res[1] || res[0] == res[2] || res[1] == res[2])
             {
-                if (res[2] == res[3])
-                {
-                    return 2;
-                }
-                else
-                {
-                    return 1;
-                }
+                if (res[0] == res[1] && res[1] == res[2]) { return 2; }
+                else { return 1; }
             }
             else
             {
