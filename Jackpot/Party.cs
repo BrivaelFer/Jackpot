@@ -163,8 +163,8 @@ namespace Jackpot
         /// </summary>
         /// <param name="nom">Nom a donné aux joueur</param>
         /// <returns>
-        ///     True : nom déja utiliser
-        ///     False : nom non utiliser
+        ///     true : nom déja utiliser
+        ///     false : nom non utiliser
         /// </returns>
         private bool JoueurExist(string nom)
         {

@@ -10,15 +10,15 @@ namespace Jackpot
     {
         #region att
         /// <summary>
-        /// Table de rouleaus
+        ///     Table de rouleaus
         /// </summary>
         private Rouleau[] rouleaux = new Rouleau[3];
         #endregion
 
         #region ctor
         /// <summary>
-        /// contructeur de la Class.
-        /// Génaire et ajoute 3 Objet Rouleau dans rouleaux.
+        ///     Contructeur de la Class.
+        ///     Génaire et ajoute 3 Objet Rouleau dans rouleaux.
         /// </summary>
         public SlotMachin()
         {
@@ -30,7 +30,7 @@ namespace Jackpot
 
         #region GS
         /// <summary>
-        /// Recupaire le symbole actuel des 3 rouleau de rouleaux
+        ///     Recupaire le symbole actuel des 3 rouleau de rouleaux
         /// </summary>
         /// <returns>retourne une table string</returns>
         public string[] GetCurrentRouleaus()
@@ -43,7 +43,7 @@ namespace Jackpot
 
         #region meth
         /// <summary>
-        /// Lance un tirage affiche resulta et compare les valeur du tirage.
+        ///     Lance un tirage affiche resulta et compare les valeur du tirage.
         /// </summary>
         /// <returns>
         ///     un entier entre 0 et 2
