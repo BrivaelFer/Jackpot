@@ -9,38 +9,61 @@ namespace Jackpot
     internal class SlotMachin
     {
         #region att
-        private Rouleau[] rouleaus = new Rouleau[3];
+        /// <summary>
+        /// Table de rouleaus
+        /// </summary>
+        private Rouleau[] rouleaux = new Rouleau[3];
         #endregion
 
         #region ctor
+        /// <summary>
+        /// contructeur de la Class.
+        /// Génaire et ajoute 3 Objet Rouleau dans rouleaux.
+        /// </summary>
         public SlotMachin()
         {
-            rouleaus[0] = new Rouleau();
-            rouleaus[1] = new Rouleau();
-            rouleaus[2] = new Rouleau();
+            rouleaux[0] = new Rouleau();
+            rouleaux[1] = new Rouleau();
+            rouleaux[2] = new Rouleau();
         }
         #endregion
 
         #region GS
+        /// <summary>
+        /// Recupaire le symbole actuel des 3 rouleau de rouleaux
+        /// </summary>
+        /// <returns>retourne une table string</returns>
         public string[] GetCurrentRouleaus()
         {
-            string[] r = { this.rouleaus[0].GetCurnentSymboles(), this.rouleaus[1].GetCurnentSymboles(), this.rouleaus[2].GetCurnentSymboles() }; 
+            string[] r = { this.rouleaux[0].GetCurnentSymboles(), this.rouleaux[1].GetCurnentSymboles(), this.rouleaux[2].GetCurnentSymboles() }; 
             return r;
         }
-        
+
         #endregion
 
         #region meth
+        /// <summary>
+        /// Lance un tirage affiche resulta et compare les valeur du tirage.
+        /// </summary>
+        /// <returns>
+        ///     un entier entre 0 et 2
+        ///         0 : 0 symbole indentique
+        ///         1 : 2 symbole indentique
+        ///         2 : 3 symbole indentique
+        /// </returns>
         public int Jouer()
         {
+            //tirage
             string[] res =
             {
-                rouleaus[0].RollAndGetSymbole(),
-                rouleaus[1].RollAndGetSymbole(),
-                rouleaus[2].RollAndGetSymbole()
+                rouleaux[0].RollAndGetSymbole(),
+                rouleaux[1].RollAndGetSymbole(),
+                rouleaux[2].RollAndGetSymbole()
             };
+            //affichage
             Console.WriteLine($"|{res[0]}|{res[1]}|{res[2]}|");
 
+            //comparaison
             if (res[0] == res[1] || res[0] == res[2] || res[1] == res[2])
             {
                 if (res[0] == res[1] && res[1] == res[2]) { return 2; }
